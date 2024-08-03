@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://jedkkuhgflnq"]
+
+[ext_resource type="Script" path="res://scripts/download.gd" id="1_8r0ln"]
+
+[node name="Download" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.853
+offset_right = 3.0
+offset_bottom = 90.2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8r0ln")
+
+[node name="img_url" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -135.073
+offset_bottom = 31.0
+grow_horizontal = 2
+placeholder_text = "url"
+
+[node name="download_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.073
+offset_right = -34.073
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Download"
+
+[connection signal="pressed" from="download_Button" to="." method="_on_download_button_pressed"]

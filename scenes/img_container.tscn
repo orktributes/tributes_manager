@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://baw13qhayxqjl"]
+
+[ext_resource type="Texture2D" uid="uid://ui20yvxyenr8" path="res://icon.svg" id="1_evhjx"]
+[ext_resource type="Script" path="res://scripts/img_container.gd" id="2_6w73g"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_evhjx")
+stretch_mode = 5
+script = ExtResource("2_6w73g")
+
+[node name="open_dir" type="Button" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 159.0
+text = "open dir"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 128.0
+offset_bottom = 191.0
+text = "is done"

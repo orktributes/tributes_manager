@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq8lpjwkrj02d"]
+
+[ext_resource type="PackedScene" uid="uid://jedkkuhgflnq" path="res://scenes/download.tscn" id="1_1cq4p"]
+[ext_resource type="PackedScene" uid="uid://bdguk8cl4txla" path="res://scenes/done.tscn" id="2_k2f7m"]
+[ext_resource type="PackedScene" uid="uid://q5uiquc7vx0q" path="res://scenes/twitter.tscn" id="3_p2c81"]
+[ext_resource type="PackedScene" uid="uid://duvvybxkde0u4" path="res://scenes/pixiv.tscn" id="4_4454c"]
+[ext_resource type="PackedScene" uid="uid://dgw65q02g4e4q" path="res://scenes/rule34.tscn" id="5_i4bk8"]
+[ext_resource type="PackedScene" uid="uid://blkqrnhgm4yct" path="res://scenes/options.tscn" id="5_meiyo"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 35.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Download" parent="TabContainer" instance=ExtResource("1_1cq4p")]
+layout_mode = 2
+
+[node name="Done" parent="TabContainer" instance=ExtResource("2_k2f7m")]
+visible = false
+layout_mode = 2
+
+[node name="Twitter" parent="TabContainer" instance=ExtResource("3_p2c81")]
+visible = false
+layout_mode = 2
+
+[node name="Pixiv" parent="TabContainer" instance=ExtResource("4_4454c")]
+visible = false
+layout_mode = 2
+
+[node name="Rule34" parent="TabContainer" instance=ExtResource("5_i4bk8")]
+visible = false
+layout_mode = 2
+
+[node name="Options" parent="TabContainer" instance=ExtResource("5_meiyo")]
+visible = false
+layout_mode = 2

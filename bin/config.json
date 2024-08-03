@@ -1,0 +1,147 @@
+{
+    "extractor":
+    {
+        "base-directory": "./gallery-dl/",
+        "parent-directory": false,
+        "postprocessors":[
+            {
+                "name": "classify",
+                "mapping":
+                {
+                    "Images": ["jpg", "jpeg", "png", "webp", "avif", "heif", "heic", "jxl", "bmp", "tif", "tiff", "jpe", "jxr", "j2k", "jp2", "hdr", "exr", "jfif", "jfi", "jif"],
+                    "Videos": ["mp4", "mkv", "webm", "m4v", "flv", "ogv", "wmv", "avi", "mpg", "mpeg", "3gp", "vob", "ts"],
+                    "Music"   : ["mp3", "aac", "flac", "ogg", "wma", "m4a", "wav"],
+                    "Archives": ["zip", "rar", "7z", "tar", "gz", "bz2"]
+                }
+            }
+        ],
+        "archive": null,
+        "cookies": null,
+        "cookies-update": true,
+        "proxy": null,
+        "skip": true,
+
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+        "retries": 4,
+        "timeout": 30.0,
+        "verify": true,
+        "fallback": true,
+
+        "sleep": 0,
+        "sleep-request": 0,
+        "sleep-extractor": 0,
+
+        "path-restrict": "auto",
+        "path-replace": "_",
+        "path-remove": "\\u0000-\\u001f\\u007f",
+        "path-strip": "auto",
+        "path-extended": true,
+
+        "extension-map": {
+            "jpeg": "jpg",
+            "jpe" : "jpg",
+            "jfif": "jpg",
+            "jif" : "jpg",
+            "jfi" : "jpg"
+        },
+        "oauth":
+        {
+            "browser": true,
+            "cache": true,
+            "host": "localhost",
+            "port": 6414
+        },
+        "pixiv":
+        {
+            "refresh-token": null,
+            "include": "artworks",
+            "embeds": false,
+            "metadata": false,
+            "metadata-bookmark": false,
+            "tags": "japanese",
+            "ugoira": true,
+            "directory":["{id}"],
+            "filename": "{id}.{extension}"
+        },
+        "twitter":
+        {
+            "username": null,
+            "password": null,
+            "cards": false,
+            "conversations": false,
+            "pinned": false,
+            "quoted": false,
+            "replies": true,
+            "retweets": false,
+            "strategy": null,
+            "text-tweets": false,
+            "twitpic": false,
+            "unique": true,
+            "users": "user",
+            "videos": true,
+            "filename":"{author['name']}_{tweet_id}.{extension}"
+        },
+        "rule34":{
+            "filename":"{id}.{extension}"
+        },
+        "ytdl":
+        {
+            "enabled": false,
+            "format": null,
+            "generic": true,
+            "logging": true,
+            "module": null,
+            "raw-options": null
+        }
+    },
+
+    "downloader":
+    {
+        "filesize-min": null,
+        "filesize-max": null,
+        "mtime": true,
+        "part": true,
+        "part-directory": null,
+        "progress": 3.0,
+        "rate": null,
+        "retries": 4,
+        "timeout": 30.0,
+        "verify": true,
+
+        "http":
+        {
+            "adjust-extensions": true,
+            "chunk-size": 32768,
+            "headers": null,
+            "validate": true
+        },
+
+        "ytdl":
+        {
+            "format": null,
+            "forward-cookies": false,
+            "logging": true,
+            "module": null,
+            "outtmpl": null,
+            "raw-options": null
+        }
+    },
+
+    "output":
+    {
+        "mode": "auto",
+        "progress": true,
+        "shorten": true,
+        "ansi": false,
+        "colors": {
+            "success": "1;32",
+            "skip"   : "2"
+        },
+        "skip": true,
+        "log": "[{name}][{levelname}] {message}",
+        "logfile": null,
+        "unsupportedfile": null
+    },
+
+    "netrc": false
+}
