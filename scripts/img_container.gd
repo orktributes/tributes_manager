@@ -9,15 +9,16 @@ func _ready():
 	open_dir.pressed.connect(_on_open_dir_pressed)
 
 func _on_open_dir_pressed():
-	print("dir_name var in pressed DEBUG: "+dir_name)
-	print("sites var in pressed DEBUG: "+sites)
+	print("DEBUG: dir_name var in pressed "+dir_name)
+	print("DEBUG: sites var in pressed "+sites)
 	OS.shell_open(OS.get_user_data_dir()+"/tributes/"+sites+"/"+dir_name)
 
 func _on_check_button_toggled(toggled_on):
-	print("toggled_on arg DEBUG: "+toggled_on)
-	print("dir_name var in toggled DEBUG: "+dir_name)
-	print("sites var in toggled DEBUG: "+sites)
+	print("DEBUG: toggled_on arg "+toggled_on)
+	print("DEBUG: dir_name var in toggled "+dir_name)
+	print("DEBUG: sites var in toggled "+sites)
 	if toggled_on == true:
+		print("DEBUG: moveing "+"user://tributes/"+sites+"/"+dir_name+" to "+"user://tributes/done/"+dir_name)
 		DirAccess.rename_absolute(
 			"user://tributes/"+sites+"/"+dir_name,
 			"user://tributes/done/"+dir_name

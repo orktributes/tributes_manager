@@ -2,12 +2,12 @@ extends Control
 
 var textrect_pre = preload("res://scenes/img_container.tscn")
 
-func _ready():
-	pass
-
-func _on_button_pressed():	
+func _on_button_pressed():
+	print("DEBUG: removeing children of pixiv GridContainer")
 	for n in $ScrollContainer/GridContainer.get_children():
 		$ScrollContainer/GridContainer.remove_child(n)
+		
+	print("DEBUG: finding and adding images to pixiv GridContainer")
 	for i in DirAccess.get_directories_at("user://tributes/pixiv/"):
 		for ii in DirAccess.get_files_at("user://tributes/pixiv/"+i+"/src"):
 			if ii == "source.txt":

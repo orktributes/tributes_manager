@@ -9,23 +9,45 @@ var rule34_class = load("res://scripts/rule34_class.gd").new()
 
 func _ready():
 	var output = []
-	DirAccess.make_dir_absolute("user://bin/")
-	DirAccess.make_dir_absolute("user://tributes")
-	DirAccess.make_dir_absolute("user://tributes/done")
-	DirAccess.make_dir_absolute("user://tributes/twitter")
-	DirAccess.make_dir_absolute("user://tributes/rule34")
-	DirAccess.make_dir_absolute("user://tributes/pixiv")
+	if DirAccess.dir_exists_absolute("user://bin/") != true:
+		print("DEBUG: making user://bin/")
+		DirAccess.make_dir_absolute("user://bin/")
+		
+	if DirAccess.dir_exists_absolute("user://tributes") != true:
+		print("DEBUG: making user://tributes")
+		DirAccess.make_dir_absolute("user://tributes")
+		
+	if DirAccess.dir_exists_absolute("user://tributes/done") != true:
+		print("DEBUG: making user://tributes/done")
+		DirAccess.make_dir_absolute("user://tributes/done")
+		
+	if DirAccess.dir_exists_absolute("user://tributes/twitter") != true:
+		print("DEBUG: making user://tributes/twitter")
+		DirAccess.make_dir_absolute("user://tributes/twitter")
+		
+	if DirAccess.dir_exists_absolute("user://tributes/rule34") != true:
+		print("DEBUG: making user://tributes/rule34")
+		DirAccess.make_dir_absolute("user://tributes/rule34")
 	
-	DirAccess.copy_absolute(
-		"res://bin/gallery-dl.bin",
-		"user://bin/gallery-dl.bin"
-	)
-	OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output)
-	DirAccess.copy_absolute(
-		"res://bin/config.json",
-		"user://bin/config.json"
-	)
-	print("output of chmod BEBUG: "+str(output))
+	if DirAccess.dir_exists_absolute("user://tributes/pixiv") != true:
+		print("DEBUG: making user://tributes/pixiv")
+		DirAccess.make_dir_absolute("user://tributes/pixiv")
+	
+	if FileAccess.file_exists("user://bin/gallery-dl.bin") != true:
+		print("DEBUG: copying gallery-dl.bin to user://bin/ and making it executable")
+		DirAccess.copy_absolute(
+			"res://bin/gallery-dl.bin",
+			"user://bin/gallery-dl.bin"
+		)
+		OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output)
+		print("BEBUG: output of chmod "+str(output))
+		
+	if FileAccess.file_exists("user://bin/config.json") != true:
+		print("DEBUG: copying config.json to user://bin/")
+		DirAccess.copy_absolute(
+			"res://bin/config.json",
+			"user://bin/config.json"
+		)
 
 func _on_download_button_pressed():
 	var regex = RegEx.new()
