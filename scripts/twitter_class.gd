@@ -11,7 +11,7 @@ func get_img(url,name,id):
 		"-c",
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json"
 	],output,true,true)
-	#print("BEBUG: "+str(output))
+	print("output of gallery-dl DEBUG: "+str(output))
 	DirAccess.make_dir_absolute("user://tributes/twitter/"+name+"_"+id)
 	DirAccess.make_dir_absolute("user://tributes/twitter/"+name+"_"+id+"/"+"edited")
 	DirAccess.make_dir_absolute("user://tributes/twitter/"+name+"_"+id+"/"+"record")

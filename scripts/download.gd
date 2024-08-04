@@ -25,7 +25,7 @@ func _ready():
 		"res://bin/config.json",
 		"user://bin/config.json"
 	)
-	#print("BEBUG: "+str(output))
+	print("output of chmod BEBUG: "+str(output))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -38,19 +38,19 @@ func _on_download_button_pressed():
 	twitter = regex.search($img_url.text)
 	if twitter:
 		twitter_class.get_img($img_url.text,twitter.get_string(2),twitter.get_string(4))
-		#print("BEBUG: "+twitter.get_string(0)+"\n"+twitter.get_string(1)+"\n"+twitter.get_string(2)+"\n"+twitter.get_string(3)+"\n"+twitter.get_string(4))
-		#print("BEBUG: "+$img_url.text)
+		print("twitter regex BEBUG: "+twitter.get_string(0)+"\n"+twitter.get_string(1)+"\n"+twitter.get_string(2)+"\n"+twitter.get_string(3)+"\n"+twitter.get_string(4))
+		print("twitter url BEBUG: "+$img_url.text)
 	# ---------------------- pixiv ----------------------------------------------
 	regex.compile(r"(https:\/\/www\.pixiv\.net\/en\/)(artworks\/)([a-zA-Z0-9_]+)")
 	pixiv = regex.search($img_url.text)
 	if pixiv:
 		pixiv_class.get_img($img_url.text,pixiv.get_string(3))
-		print("BEBUG: "+pixiv.get_string(0)+"\n"+pixiv.get_string(1)+"\n"+pixiv.get_string(2)+"\n"+pixiv.get_string(3)+"\n"+pixiv.get_string(4))
-		print("BEBUG: "+$img_url.text)
+		print("pixiv regex BEBUG: "+pixiv.get_string(0)+"\n"+pixiv.get_string(1)+"\n"+pixiv.get_string(2)+"\n"+pixiv.get_string(3)+"\n"+pixiv.get_string(4))
+		print("pixiv url BEBUG: "+$img_url.text)
 	# ---------------------- rule34 ---------------------------------------------
 	regex.compile(r"(https:\/\/rule34\.xxx\/)(index\.php\?page=post&s=view&id=)([a-zA-Z0-9_]+)")
 	rule34 = regex.search($img_url.text)
 	if rule34:
 		rule34_class.get_img($img_url.text,rule34.get_string(3))
-		print("BEBUG: "+rule34.get_string(0)+"\n"+rule34.get_string(1)+"\n"+rule34.get_string(2)+"\n"+rule34.get_string(3)+"\n"+rule34.get_string(4))
-		print("BEBUG: "+$img_url.text)
+		print("rule34 regex BEBUG: "+rule34.get_string(0)+"\n"+rule34.get_string(1)+"\n"+rule34.get_string(2)+"\n"+rule34.get_string(3)+"\n"+rule34.get_string(4))
+		print("rule34 url BEBUG: "+$img_url.text)

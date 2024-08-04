@@ -24,4 +24,4 @@ func _on_button_pressed():
 				var texture = ImageTexture.create_from_image(image)
 				textrect.texture = texture
 				$ScrollContainer/GridContainer.add_child(textrect)
-				print("user://tributes/twitter/"+i+"/src/"+ii)
+				print("path of the twitter data DEBUG: "+"user://tributes/twitter/"+i+"/src/"+ii)

@@ -24,4 +24,4 @@ func _on_button_pressed():
 				var texture = ImageTexture.create_from_image(image)
 				textrect.texture = texture
 				$ScrollContainer/GridContainer.add_child(textrect)
-				print("user://tributes/rule34/"+i+"/src/"+ii)
+				print("path of the rule34 data DEBUG: "+"user://tributes/rule34/"+i+"/src/"+ii)
