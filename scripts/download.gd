@@ -27,10 +27,6 @@ func _ready():
 	)
 	print("output of chmod BEBUG: "+str(output))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass
-
 func _on_download_button_pressed():
 	var regex = RegEx.new()
 	# ---------------------- twitter ----------------------------------------------

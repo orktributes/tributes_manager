@@ -1,12 +1,6 @@
 extends Control
 
-
 var textrect_pre = preload("res://scenes/img_container.tscn")
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func _on_button_pressed():	
 	for n in $ScrollContainer/GridContainer.get_children():
