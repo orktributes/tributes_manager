@@ -7,6 +7,9 @@ var twitter_class = load("res://scripts/twitter_class.gd").new()
 var pixiv_class = load("res://scripts/pixiv_class.gd").new()
 var rule34_class = load("res://scripts/rule34_class.gd").new()
 
+var user_dir = DirAccess.open("user://")
+
+
 func _ready():
 	var output = []
 	if DirAccess.dir_exists_absolute("user://bin/") != true:
@@ -35,16 +38,16 @@ func _ready():
 	
 	if FileAccess.file_exists("user://bin/gallery-dl.bin") != true:
 		print("DEBUG: copying gallery-dl.bin to user://bin/ and making it executable")
-		DirAccess.copy_absolute(
+		user_dir.copy(
 			"res://bin/gallery-dl.bin",
 			"user://bin/gallery-dl.bin"
 		)
-		OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output)
+		OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output,true,true)
 		print("BEBUG: output of chmod "+str(output))
 		
 	if FileAccess.file_exists("user://bin/config.json") != true:
 		print("DEBUG: copying config.json to user://bin/")
-		DirAccess.copy_absolute(
+		user_dir.copy(
 			"res://bin/config.json",
 			"user://bin/config.json"
 		)

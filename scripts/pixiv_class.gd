@@ -1,5 +1,7 @@
 class_name pixiv_class
 
+var user_dir = DirAccess.open("user://")
+
 func get_img(url,id):
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin",[
@@ -38,7 +40,7 @@ func get_img(url,id):
 	
 	if FileAccess.file_exists("user://tributes/pixiv/"+id+"/edit.sh") != true:
 		print("DEBUG: copying edit.sh to "+"user://tributes/pixiv/"+id)
-		DirAccess.copy_absolute(
+		user_dir.copy(
 			"res://bin/edit.sh",
 			"user://tributes/pixiv/"+id+"/edit.sh"
 		)

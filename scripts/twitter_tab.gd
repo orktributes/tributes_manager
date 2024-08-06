@@ -2,7 +2,7 @@ extends Control
 
 var textrect_pre = preload("res://scenes/img_container.tscn")
 
-func _on_button_pressed():	
+func _on_button_pressed():
 	for n in $ScrollContainer/GridContainer.get_children():
 		$ScrollContainer/GridContainer.remove_child(n)
 	for i in DirAccess.get_directories_at("user://tributes/twitter/"):
