@@ -79,7 +79,7 @@
             "unique": true,
             "users": "user",
             "videos": true,
-            "filename":"{author['name']}_{tweet_id}.{extension}"
+            "filename":"{author['name']}_{tweet_id}{num}.{extension}"
         },
         "rule34":{
             "filename":"{id}.{extension}"

@@ -6,6 +6,7 @@ func _on_button_pressed():
 	for n in $ScrollContainer/GridContainer.get_children():
 		$ScrollContainer/GridContainer.remove_child(n)
 	for i in DirAccess.get_directories_at("user://tributes/twitter/"):
+		
 		for ii in DirAccess.get_files_at("user://tributes/twitter/"+i+"/src"):
 			if ii == "source.txt":
 				pass

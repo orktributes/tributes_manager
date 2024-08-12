@@ -1,4 +1,5 @@
 class_name twitter_class
+signal twitter_signal(dir)
 
 var user_dir = DirAccess.open("user://")
 
@@ -48,7 +49,8 @@ func get_img(url,name,id):
 		)
 	
 	for i in DirAccess.get_files_at("user://bin/twitter/"+name+"/Images/"):
-		DirAccess.copy_absolute(
+		DirAccess.rename_absolute(
 		"user://bin/twitter/"+name+"/Images/"+i,
 		"user://tributes/twitter/"+name+"_"+id+"/src/"+i
 	)
+		twitter_signal.emit("user://tributes/twitter/"+name+"_"+id+"/src/"+i)

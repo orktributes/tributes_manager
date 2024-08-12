@@ -31,10 +31,12 @@ func _on_check_button_toggled(toggled_on):
 			"user://tributes/done/"+dir_name
 		)
 
-
 func _on_pick_video_pressed():
 	fd.show()
 
-
 func _on_file_dialog_file_selected(path):
-	print(path)
+	print("DEBUG: video path "+path)
+	DirAccess.copy_absolute(
+		path,
+		"user://tributes/"+sites+"/"+dir_name+"/record/cum.mkv"
+	)

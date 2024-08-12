@@ -1,5 +1,5 @@
 class_name pixiv_class
-
+signal pixiv_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 func get_img(url,id):
@@ -51,3 +51,4 @@ func get_img(url,id):
 		"user://bin/"+id+"/Images/"+i,
 		"user://tributes/pixiv/"+id+"/src/"+i
 	)
+		pixiv_signal.emit("user://tributes/pixiv/"+id+"/src/"+i)

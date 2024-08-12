@@ -32,4 +32,15 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "Download"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
 [connection signal="pressed" from="download_Button" to="." method="_on_download_button_pressed"]

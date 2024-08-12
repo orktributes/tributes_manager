@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq8lpjwkrj02d"]
+[gd_scene load_steps=8 format=3 uid="uid://bq8lpjwkrj02d"]
 
 [ext_resource type="PackedScene" uid="uid://jedkkuhgflnq" path="res://scenes/download.tscn" id="1_1cq4p"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_2v4vj"]
 [ext_resource type="PackedScene" uid="uid://bdguk8cl4txla" path="res://scenes/done.tscn" id="2_k2f7m"]
 [ext_resource type="PackedScene" uid="uid://q5uiquc7vx0q" path="res://scenes/twitter.tscn" id="3_p2c81"]
 [ext_resource type="PackedScene" uid="uid://duvvybxkde0u4" path="res://scenes/pixiv.tscn" id="4_4454c"]
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2v4vj")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -22,7 +24,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 35.0
-offset_bottom = 48.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 

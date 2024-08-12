@@ -1,5 +1,5 @@
 class_name rule34_class
-
+signal rule34_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 func get_img(url,id):
@@ -53,3 +53,4 @@ func get_img(url,id):
 		"user://bin/rule34/Images/"+i,
 		"user://tributes/rule34/"+id+"/src/"+i
 	)
+		rule34_signal.emit("user://tributes/pixiv/"+id+"/src/"+i)
