@@ -1,7 +1,3 @@
-# tributes_manager
-
-
-
 # how to build/edit this project
 -  1: download and install [v4.3.stable.mono.official](https://godotengine.org/download/)
 
