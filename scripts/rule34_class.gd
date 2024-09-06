@@ -2,18 +2,38 @@ class_name rule34_class
 signal rule34_signal(dir)
 var user_dir = DirAccess.open("user://")
 
-func get_img(url,id):
+func linux_gallerydl(url):
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin",[
-		"--cookies-from-browser",
-		"firefox",
 		url,
 		"-d",
 		OS.get_user_data_dir()+"/"+"bin",
 		"-c",
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
 	],output,true,true)
-	print("output of gallery-dl DEBUG: "+str(output))
+	print("Linux gallery-dl")
+	print("DEBUG: output of gallery-dl "+str(output))
+
+func Windows_gallerydl(url):
+	var output = []
+	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.exe",[
+		url,
+		"-d",
+		OS.get_user_data_dir()+"/"+"bin",
+		"-c",
+		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
+	],output,true,true)
+	print("Linux gallery-dl")
+	print("DEBUG: output of gallery-dl "+str(output))
+
+func get_img(url,id):
+	match OS.get_name():
+		"Windows":
+			Windows_gallerydl(url)
+		"Linux","X11","FreeBSD", "NetBSD", "OpenBSD", "BSD":
+			linux_gallerydl(url)
+		"Android":
+			print("Welcome to Android!")
 	
 	if DirAccess.dir_exists_absolute("user://tributes/rule34/"+id) != true:
 		print("DEBUG: making "+"user://tributes/rule34/"+id)

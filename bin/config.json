@@ -79,6 +79,7 @@
             "unique": true,
             "users": "user",
             "videos": true,
+            "directory": ["twitter","{author[name]}_{tweet_id}"],
             "filename":"{author['name']}_{tweet_id}{num}.{extension}"
         },
         "rule34":{

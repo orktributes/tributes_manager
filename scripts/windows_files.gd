@@ -41,15 +41,15 @@ func make_files():
 		print("DEBUG: user://tributes/pixiv exists")
 		
 	if FileAccess.file_exists("user://bin/gallery-dl.exe") != true:
-		print("DEBUG: copying gallery-dl.bin to user://bin/ and making it executable")
+		print("DEBUG: copying gallery-dl.exe to user://bin/ and making it executable")
 		user_dir.copy(
-			"res://bin/gallery-dl.bin",
-			"user://bin/gallery-dl.bin"
+			"res://bin/gallery-dl.exe",
+			"user://bin/gallery-dl.exe"
 		)
 		#OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output,true,true)
 		#print("BEBUG: output of chmod "+str(output))
 	else :
-		print("DEBUG: gallery-dl.bin exists in user://bin/")
+		print("DEBUG: gallery-dl.exe exists in user://bin/")
 		
 	if FileAccess.file_exists("user://bin/config.json") != true:
 		print("DEBUG: copying config.json to user://bin/")

@@ -6,7 +6,7 @@ var pixiv = null
 var twitter_class = load("res://scripts/twitter_class.gd").new()
 var pixiv_class = load("res://scripts/pixiv_class.gd").new()
 var rule34_class = load("res://scripts/rule34_class.gd").new()
-var linux_files_class = load("res://scripts/linux_files.gd").new()
+var linux_files = load("res://scripts/linux_files.gd").new()
 var windows_files = load("res://scripts/windows_files.gd").new()
 
 @onready var textrect = $TextureRect
@@ -21,7 +21,7 @@ func _ready():
 			windows_files.make_files()
 			print("Welcome to Windows!")
 		"Linux","X11","FreeBSD", "NetBSD", "OpenBSD", "BSD":
-			linux_files_class.make_files()
+			linux_files.make_files()
 			print("Welcome to Linux/BSD!")
 		"Android":
 			print("Welcome to Android!")
@@ -33,7 +33,7 @@ func _on_download_button_pressed():
 	regex.compile(r"(https:\/\/x\.com\/)([a-zA-Z0-9_]+)(\/status\/)([a-zA-Z0-9_]+)")
 	twitter = regex.search($img_url.text)
 	if twitter:
-		twitter_class.get_img($img_url.text,twitter.get_string(2),twitter.get_string(4))
+		twitter_class.get_img($img_url.text)
 		$img_url.text = ""
 		print("twitter regex BEBUG: "+twitter.get_string(0)+"\n"+twitter.get_string(1)+"\n"+twitter.get_string(2)+"\n"+twitter.get_string(3)+"\n"+twitter.get_string(4))
 		print("twitter url BEBUG: "+$img_url.text)
@@ -77,7 +77,7 @@ func rule34_done(dir):
 
 
 func _on_twitter_bookmarks_pressed() -> void:
-	pass # Replace with function body.
+	twitter_class.get_img("https://x.com/i/bookmarks")
 
 
 func _on_pixiv_bookmarks_pressed() -> void:

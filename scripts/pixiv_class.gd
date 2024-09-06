@@ -2,7 +2,7 @@ class_name pixiv_class
 signal pixiv_signal(dir)
 var user_dir = DirAccess.open("user://")
 
-func get_img(url,id):
+func linux_gallerydl(url):
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin",[
 		url,
@@ -11,7 +11,29 @@ func get_img(url,id):
 		"-c",
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
 	],output,true,true)
+	print("Linux gallery-dl")
 	print("DEBUG: output of gallery-dl "+str(output))
+
+func Windows_gallerydl(url):
+	var output = []
+	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.exe",[
+		url,
+		"-d",
+		OS.get_user_data_dir()+"/"+"bin",
+		"-c",
+		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
+	],output,true,true)
+	print("Linux gallery-dl")
+	print("DEBUG: output of gallery-dl "+str(output))
+
+func get_img(url,id):
+	match OS.get_name():
+		"Windows":
+			Windows_gallerydl(url)
+		"Linux","X11","FreeBSD", "NetBSD", "OpenBSD", "BSD":
+			linux_gallerydl(url)
+		"Android":
+			print("Welcome to Android!")
 	
 	if DirAccess.dir_exists_absolute("user://tributes/pixiv/"+id) != true:
 		print("DEBUG: making "+"user://tributes/pixiv/"+id)
