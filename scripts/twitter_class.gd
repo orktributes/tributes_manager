@@ -78,12 +78,8 @@ func get_img(url):
 			).store_string(
 				"\n"+"#二次絵ぶっかけ #cumtributeِs #sop\n\n"+"image used in the tribute"+"\n"+"https://x.com/cum/status/"+i.get_slice("_",1)
 			)
-	
-
-	#
-	#for i in DirAccess.get_files_at("user://bin/twitter/"+name+"/Images/"):
-		#DirAccess.rename_absolute(
-		#"user://bin/twitter/"+name+"/Images/"+i,
-		#"user://tributes/twitter/"+name+"_"+id+"/src/"+i
-	#)
-		#twitter_signal.emit("user://tributes/twitter/"+name+"_"+id+"/src/"+i)
+		for ii in DirAccess.get_files_at("user://tributes/twitter/"+i+"/src/"):
+			if ii == "source.txt":
+				pass
+			else:
+				twitter_signal.emit("user://tributes/twitter/"+i+"/src/"+ii)

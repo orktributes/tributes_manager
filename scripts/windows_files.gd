@@ -3,7 +3,7 @@ class_name windows_files
 var user_dir = DirAccess.open("user://")
 
 func make_files():
-	var output = []
+	#var output = []
 	if DirAccess.dir_exists_absolute("user://bin/") != true:
 		print("DEBUG: making user://bin/")
 		DirAccess.make_dir_absolute("user://bin/")

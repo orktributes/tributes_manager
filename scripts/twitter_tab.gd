@@ -20,3 +20,7 @@ func _on_button_pressed():
 				textrect.texture = texture
 				$ScrollContainer/GridContainer.add_child(textrect)
 				print("path of the twitter data DEBUG: "+"user://tributes/twitter/"+i+"/src/"+ii)
+				
+	#for i in 9:
+		#var textrect = textrect_pre.instantiate()
+		#$ScrollContainer/GridContainer.add_child(textrect)
