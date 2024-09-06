@@ -6,8 +6,8 @@ var pixiv = null
 var twitter_class = load("res://scripts/twitter_class.gd").new()
 var pixiv_class = load("res://scripts/pixiv_class.gd").new()
 var rule34_class = load("res://scripts/rule34_class.gd").new()
-
-var user_dir = DirAccess.open("user://")
+var linux_files_class = load("res://scripts/linux_files.gd").new()
+var windows_files = load("res://scripts/windows_files.gd").new()
 
 @onready var textrect = $TextureRect
 
@@ -15,65 +15,17 @@ func _ready():
 	twitter_class.twitter_signal.connect(twitter_done)
 	pixiv_class.pixiv_signal.connect(pixiv_done)
 	rule34_class.rule34_signal.connect(rule34_done)
+	print("DEBUG OS.get_name(): "+OS.get_name())
+	match OS.get_name():
+		"Windows":
+			windows_files.make_files()
+			print("Welcome to Windows!")
+		"Linux","X11","FreeBSD", "NetBSD", "OpenBSD", "BSD":
+			linux_files_class.make_files()
+			print("Welcome to Linux/BSD!")
+		"Android":
+			print("Welcome to Android!")
 	
-	
-	
-	var output = []
-	if DirAccess.dir_exists_absolute("user://bin/") != true:
-		print("DEBUG: making user://bin/")
-		DirAccess.make_dir_absolute("user://bin/")
-	else :
-		print("DEBUG: user://bin/ exists")
-		
-	if DirAccess.dir_exists_absolute("user://tributes") != true:
-		print("DEBUG: making user://tributes")
-		DirAccess.make_dir_absolute("user://tributes")
-	else :
-		print("DEBUG: user://tributes exists")
-	
-	if DirAccess.dir_exists_absolute("user://tributes/done") != true:
-		print("DEBUG: making user://tributes/done")
-		DirAccess.make_dir_absolute("user://tributes/done")
-	else :
-		print("DEBUG: user://tributes/done exists")
-		
-	if DirAccess.dir_exists_absolute("user://tributes/twitter") != true:
-		print("DEBUG: making user://tributes/twitter")
-		DirAccess.make_dir_absolute("user://tributes/twitter")
-	else :
-		print("DEBUG: user://tributes/twitter exists")
-		
-	if DirAccess.dir_exists_absolute("user://tributes/rule34") != true:
-		print("DEBUG: making user://tributes/rule34")
-		DirAccess.make_dir_absolute("user://tributes/rule34")
-	else :
-		print("DEBUG: user://tributes/rule34 exists")
-		
-	if DirAccess.dir_exists_absolute("user://tributes/pixiv") != true:
-		print("DEBUG: making user://tributes/pixiv")
-		DirAccess.make_dir_absolute("user://tributes/pixiv")
-	else :
-		print("DEBUG: user://tributes/pixiv exists")
-		
-	if FileAccess.file_exists("user://bin/gallery-dl.bin") != true:
-		print("DEBUG: copying gallery-dl.bin to user://bin/ and making it executable")
-		user_dir.copy(
-			"res://bin/gallery-dl.bin",
-			"user://bin/gallery-dl.bin"
-		)
-		OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output,true,true)
-		print("BEBUG: output of chmod "+str(output))
-	else :
-		print("DEBUG: gallery-dl.bin exists in user://bin/")
-		
-	if FileAccess.file_exists("user://bin/config.json") != true:
-		print("DEBUG: copying config.json to user://bin/")
-		user_dir.copy(
-			"res://bin/config.json",
-			"user://bin/config.json"
-		)
-	else :
-		print("DEBUG: config.json exists in user://bin/")
 
 func _on_download_button_pressed():
 	var regex = RegEx.new()
@@ -124,4 +76,9 @@ func rule34_done(dir):
 	print(dir)
 
 
+func _on_twitter_bookmarks_pressed() -> void:
+	pass # Replace with function body.
 
+
+func _on_pixiv_bookmarks_pressed() -> void:
+	pass # Replace with function body.

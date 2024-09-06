@@ -6,8 +6,7 @@
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.853
-offset_right = 3.0
-offset_bottom = 90.2
+offset_bottom = 90.3
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8r0ln")
@@ -16,7 +15,6 @@ script = ExtResource("1_8r0ln")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -135.073
 offset_bottom = 31.0
 grow_horizontal = 2
 placeholder_text = "url"
@@ -26,9 +24,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -135.073
-offset_right = -34.073
-offset_bottom = 31.0
+offset_left = -1192.0
+offset_top = 32.0
+offset_right = -1096.0
+offset_bottom = 64.0
 grow_horizontal = 0
 text = "Download"
 
@@ -37,10 +36,28 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 40.0
+offset_top = 72.0
 offset_bottom = 0.0999756
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
+[node name="twitter_bookmarks" type="Button" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 64.0
+text = "twitter bookmarks"
+
+[node name="pixiv_bookmarks" type="Button" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 32.0
+offset_right = 424.0
+offset_bottom = 64.0
+text = "pixiv bookmarks"
+
 [connection signal="pressed" from="download_Button" to="." method="_on_download_button_pressed"]
+[connection signal="pressed" from="twitter_bookmarks" to="." method="_on_twitter_bookmarks_pressed"]
+[connection signal="pressed" from="pixiv_bookmarks" to="." method="_on_pixiv_bookmarks_pressed"]

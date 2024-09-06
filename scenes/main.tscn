@@ -23,30 +23,36 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 35.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
 
 [node name="Download" parent="TabContainer" instance=ExtResource("1_1cq4p")]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="Done" parent="TabContainer" instance=ExtResource("2_k2f7m")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Twitter" parent="TabContainer" instance=ExtResource("3_p2c81")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="Pixiv" parent="TabContainer" instance=ExtResource("4_4454c")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="Rule34" parent="TabContainer" instance=ExtResource("5_i4bk8")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 4
 
 [node name="Options" parent="TabContainer" instance=ExtResource("5_meiyo")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 5
