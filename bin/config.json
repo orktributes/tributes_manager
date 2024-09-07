@@ -60,7 +60,7 @@
             "metadata-bookmark": false,
             "tags": "japanese",
             "ugoira": true,
-            "directory":["{id}"],
+            "directory": ["pixiv","{id}"],
             "filename": "{id}.{extension}"
         },
         "twitter":
@@ -83,6 +83,7 @@
             "filename":"{author['name']}_{tweet_id}{num}.{extension}"
         },
         "rule34":{
+            "directory": ["rule34","{id}"],
             "filename":"{id}.{extension}"
         },
         "ytdl":

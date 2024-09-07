@@ -2,6 +2,10 @@ class_name twitter_class
 signal twitter_signal(dir)
 var user_dir = DirAccess.open("user://")
 
+var site_name = "twitter"
+
+
+
 func linux_gallerydl(url):
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin",[
@@ -43,43 +47,43 @@ func get_img(url):
 		"Android":
 			print("Welcome to Android!")
 			
-	for i in DirAccess.get_directories_at("user://bin/twitter/"):
+	for i in DirAccess.get_directories_at("user://bin/"+site_name+"/"):
 		DirAccess.rename_absolute(
-			"user://bin/twitter/"+i,
-			"user://tributes/twitter/"+i
+			"user://bin/"+site_name+"/"+i,
+			"user://tributes/"+site_name+"/"+i
 		)
-		if DirAccess.dir_exists_absolute("user://tributes/twitter/"+i+"/"+"edited") != true:
-			print("DEBUG: making "+"user://tributes/twitter/"+i+"/"+"edited")
-			DirAccess.make_dir_absolute("user://tributes/twitter/"+i+"/"+"edited")
+		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"edited") != true:
+			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"edited")
+			DirAccess.make_dir_absolute("user://tributes/"+site_name+"/"+i+"/"+"edited")
 	
-		if DirAccess.dir_exists_absolute("user://tributes/twitter/"+i+"/"+"record") != true:
-			print("DEBUG: making "+"user://tributes/twitter/"+i+"/"+"record")
-			DirAccess.make_dir_absolute("user://tributes/twitter/"+i+"/"+"record")
+		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"record") != true:
+			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"record")
+			DirAccess.make_dir_absolute("user://tributes/"+site_name+"/"+i+"/"+"record")
 	
-		if DirAccess.dir_exists_absolute("user://tributes/twitter/"+i+"/"+"src") != true:
-			print("DEBUG: making "+"user://tributes/twitter/"+i+"/"+"src")
+		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"src") != true:
+			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"src")
 			DirAccess.rename_absolute(
-				"user://tributes/twitter/"+i+"/Images",
-				"user://tributes/twitter/"+i+"/src"
+				"user://tributes/"+site_name+"/"+i+"/Images",
+				"user://tributes/"+site_name+"/"+i+"/src"
 			)
 			
-		if FileAccess.file_exists("user://tributes/twitter/"+i+"/edit.sh") != true:
-			print("DEBUG: copying edit.sh to "+"user://tributes/twitter/"+i+"/edit.sh")
+		if FileAccess.file_exists("user://tributes/"+site_name+"/"+i+"/edit.sh") != true:
+			print("DEBUG: copying edit.sh to "+"user://tributes/"+site_name+"/"+i+"/edit.sh")
 			user_dir.copy(
 				"res://bin/edit.sh",
-				"user://tributes/twitter/"+i+"/edit.sh"
+				"user://tributes/"+site_name+"/"+i+"/edit.sh"
 			)
 
-		if FileAccess.file_exists("user://tributes/twitter/"+i+"/"+"src/source.txt") != true:
-			print("DEBUG: making source.txt for "+"user://tributes/twitter/"+i)
+		if FileAccess.file_exists("user://tributes/"+site_name+"/"+i+"/"+"src/source.txt") != true:
+			print("DEBUG: making source.txt for "+"user://tributes/"+site_name+"/"+i)
 			FileAccess.open(
-				"user://tributes/twitter/"+i+"/"+"src/source.txt",
+				"user://tributes/"+site_name+"/"+i+"/"+"src/source.txt",
 				FileAccess.WRITE
 			).store_string(
 				"\n"+"#二次絵ぶっかけ #cumtributeِs #sop\n\n"+"image used in the tribute"+"\n"+"https://x.com/cum/status/"+i.get_slice("_",1)
 			)
-		for ii in DirAccess.get_files_at("user://tributes/twitter/"+i+"/src/"):
+		for ii in DirAccess.get_files_at("user://tributes/"+site_name+"/"+i+"/src/"):
 			if ii == "source.txt":
 				pass
 			else:
-				twitter_signal.emit("user://tributes/twitter/"+i+"/src/"+ii)
+				twitter_signal.emit("user://tributes/"+site_name+"/"+i+"/src/"+ii)

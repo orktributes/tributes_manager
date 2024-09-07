@@ -41,7 +41,7 @@ func _on_download_button_pressed():
 	regex.compile(r"(https:\/\/www\.pixiv\.net\/en\/)(artworks\/)([a-zA-Z0-9_]+)")
 	pixiv = regex.search($img_url.text)
 	if pixiv:
-		pixiv_class_load.get_img($img_url.text,pixiv.get_string(3))
+		pixiv_class_load.get_img($img_url.text)
 		$img_url.text = ""
 		print("pixiv regex BEBUG: "+pixiv.get_string(0)+"\n"+pixiv.get_string(1)+"\n"+pixiv.get_string(2)+"\n"+pixiv.get_string(3)+"\n"+pixiv.get_string(4))
 		print("pixiv url BEBUG: "+$img_url.text)
@@ -49,7 +49,7 @@ func _on_download_button_pressed():
 	regex.compile(r"(https:\/\/rule34\.xxx\/)(index\.php\?page=post&s=view&id=)([a-zA-Z0-9_]+)")
 	rule34 = regex.search($img_url.text)
 	if rule34:
-		rule34_class_load.get_img($img_url.text,rule34.get_string(3))
+		rule34_class_load.get_img($img_url.text)
 		$img_url.text = ""
 		print("rule34 regex BEBUG: "+rule34.get_string(0)+"\n"+rule34.get_string(1)+"\n"+rule34.get_string(2)+"\n"+rule34.get_string(3)+"\n"+rule34.get_string(4))
 		print("rule34 url BEBUG: "+$img_url.text)
