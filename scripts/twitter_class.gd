@@ -3,7 +3,7 @@ signal twitter_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 var site_name = "twitter"
-
+var options_class_load = load("res://scripts/options.gd").new()
 
 
 func linux_gallerydl(url):
@@ -17,7 +17,7 @@ func linux_gallerydl(url):
 		"--range",
 		"1-5",
 		"--cookies-from-browser",
-		"firefox"
+		options_class_load.browser
 	],output,true,true)
 	print("Linux gallery-dl")
 	print("DEBUG: output of gallery-dl "+str(output))
@@ -33,7 +33,7 @@ func Windows_gallerydl(url):
 		"--range",
 		"1-5",
 		"--cookies-from-browser",
-		"firefox"
+		options_class_load.browser
 	],output,true,true)
 	print("Windows gallery-dl")
 	print("DEBUG: output of gallery-dl "+str(output))

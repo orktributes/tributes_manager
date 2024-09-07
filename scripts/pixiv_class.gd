@@ -32,8 +32,7 @@ func Windows_gallerydl(url):
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
 		"--range",
 		"1-5",
-		"--cookies-from-browser",
-		"firefox"
+		"oauth:pixiv"
 	],output,true,true)
 	print("Windows gallery-dl")
 	print("DEBUG: output of gallery-dl "+str(output))
