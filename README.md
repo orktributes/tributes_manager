@@ -6,3 +6,5 @@
 - 3: download the windows and linux [ffmpeg](https://www.ffmpeg.org/download.html) binarys to the bin folder of the project
 
 - 4: download the windows and linux [gallery-dl](https://github.com/mikf/gallery-dl/releases) binarys to the bin folder of the project
+
+- 5: open godot and import it
