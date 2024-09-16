@@ -3,10 +3,10 @@ signal rule34_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 var site_name = "rule34"
-
-
+var options_class_load = load("res://scripts/options.gd").new()
 
 func linux_gallerydl(url):
+	print_rich("[color=Blue]BEBUG:[/color] runing linux gallery-dl")
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin",[
 		url,
@@ -14,15 +14,13 @@ func linux_gallerydl(url):
 		OS.get_user_data_dir()+"/"+"bin",
 		"-c",
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
-		"--range",
-		"1-5",
 		"--cookies-from-browser",
-		"firefox"
+		options_class_load.browser
 	],output,true,true)
-	print("Linux gallery-dl")
-	print("DEBUG: output of gallery-dl "+str(output))
+	print_rich("[color=Blue]BEBUG:[/color] output of linux gallery-dl "+str(output))
 
 func Windows_gallerydl(url):
+	print_rich("[color=Blue]BEBUG:[/color] runing Windows gallery-dl")
 	var output = []
 	OS.execute(OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.exe",[
 		url,
@@ -33,56 +31,59 @@ func Windows_gallerydl(url):
 		"--range",
 		"1-5",
 		"--cookies-from-browser",
-		"firefox"
+		options_class_load.browser
 	],output,true,true)
-	print("Windows gallery-dl")
-	print("DEBUG: output of gallery-dl "+str(output))
+	print_rich("[color=Blue]BEBUG:[/color] output of Windows gallery-dl "+str(output))
 
 func get_img(url):
 	match OS.get_name():
 		"Windows":
+			print_rich("[color=Blue]BEBUG:[/color] running Windows_gallerydl func")
 			Windows_gallerydl(url)
 		"Linux","X11","FreeBSD", "NetBSD", "OpenBSD", "BSD":
+			print_rich("[color=Blue]BEBUG:[/color] running linux_gallerydl func")
 			linux_gallerydl(url)
 		"Android":
-			print("Welcome to Android!")
+			print_rich("[color=Blue]BEBUG:[/color] Welcome to Android!")
 			
 	for i in DirAccess.get_directories_at("user://bin/"+site_name+"/"):
+		print_rich("[color=Blue]BEBUG:[/color] finding all images in bin/"+site_name+" and moveing to tributes/"+site_name)
 		DirAccess.rename_absolute(
 			"user://bin/"+site_name+"/"+i,
 			"user://tributes/"+site_name+"/"+i
 		)
 		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"edited") != true:
-			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"edited")
+			print_rich("[color=Blue]BEBUG[/color] making: "+"user://tributes/"+site_name+"/"+i+"/"+"edited")
 			DirAccess.make_dir_absolute("user://tributes/"+site_name+"/"+i+"/"+"edited")
 	
 		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"record") != true:
-			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"record")
+			print_rich("[color=Blue]BEBUG[/color] making: "+"user://tributes/"+site_name+"/"+i+"/"+"record")
 			DirAccess.make_dir_absolute("user://tributes/"+site_name+"/"+i+"/"+"record")
 	
 		if DirAccess.dir_exists_absolute("user://tributes/"+site_name+"/"+i+"/"+"src") != true:
-			print("DEBUG: making "+"user://tributes/"+site_name+"/"+i+"/"+"src")
+			print_rich("[color=Blue]BEBUG[/color] renameing Images to src: "+"user://tributes/"+site_name+"/"+i+"/"+"src")
 			DirAccess.rename_absolute(
 				"user://tributes/"+site_name+"/"+i+"/Images",
 				"user://tributes/"+site_name+"/"+i+"/src"
 			)
 			
 		if FileAccess.file_exists("user://tributes/"+site_name+"/"+i+"/edit.sh") != true:
-			print("DEBUG: copying edit.sh to "+"user://tributes/"+site_name+"/"+i+"/edit.sh")
+			print_rich("[color=Blue]BEBUG:[/color] copying edit.sh to "+"user://tributes/"+site_name+"/"+i+"/edit.sh")
 			user_dir.copy(
 				"res://bin/edit.sh",
 				"user://tributes/"+site_name+"/"+i+"/edit.sh"
 			)
 
 		if FileAccess.file_exists("user://tributes/"+site_name+"/"+i+"/"+"src/source.txt") != true:
-			print("DEBUG: making source.txt for "+"user://tributes/"+site_name+"/"+i)
+			print_rich("[color=Blue]BEBUG:[/color] making source.txt for "+"user://tributes/"+site_name+"/"+i)
 			FileAccess.open(
 				"user://tributes/"+site_name+"/"+i+"/"+"src/source.txt",
 				FileAccess.WRITE
 			).store_string(
-				"\n"+"#二次絵ぶっかけ #cumtributeِs #sop\n\n"+"image used in the tribute"+"\n"+"https://rule34.xxx/index.php?page=post&s=view&id="+i
+				"\n"+"#二次絵ぶっかけ #cumtributeِs #sop\n\n"+"image used in the tribute"+"\n"+"https://x.com/cum/status/"+i.get_slice("_",1)+"\nps twitter automatically convert the url"
 			)
 		for ii in DirAccess.get_files_at("user://tributes/"+site_name+"/"+i+"/src/"):
+			print_rich("[color=Blue]BEBUG:[/color] sending the downloaded image to the download tab")
 			if ii == "source.txt":
 				pass
 			else:

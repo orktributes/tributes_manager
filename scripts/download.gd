@@ -3,6 +3,7 @@ extends Node
 var twitter = null
 var rule34 = null
 var pixiv = null
+var options_class_load = load("res://scripts/options.gd").new()
 var twitter_class_load = load("res://scripts/twitter_class.gd").new()
 var pixiv_class_load = load("res://scripts/pixiv_class.gd").new()
 var rule34_class_load = load("res://scripts/rule34_class.gd").new()
@@ -81,4 +82,5 @@ func _on_twitter_bookmarks_pressed() -> void:
 
 
 func _on_pixiv_bookmarks_pressed() -> void:
-	pass # Replace with function body.
+	
+	pixiv_class_load.get_img("https://www.pixiv.net/en/users/"+options_class_load.pixiv_id+"/bookmarks/artworks/test")

@@ -79,6 +79,8 @@ text = "How to use
 			https://pbs.twimg.com/media/GTk2Jh-XIAA7ApR?format=jpg&name=4096x4096
 
 	for pixiv posts
+		you have to set up oauth [url=https://github.com/mikf/gallery-dl?tab=readme-ov-file#oauth]link to the docs[/url]
+		to download pixiv bookmarks you need to copy your pixiv id in to the options tab and save it
 		this url does works
 			https://www.pixiv.net/en/artworks/120961540
 		this url does not work
