@@ -18,7 +18,7 @@ func load_config():
 		
 	browser = config.get_value("config","browser")
 	print_rich("[color=Blue]BEBUG[/color] "+site_name+" config get browser key value: "+browser)
-	is_config_load == true
+	is_config_load = true
 
 func linux_gallerydl(url):
 	if is_config_load == false:

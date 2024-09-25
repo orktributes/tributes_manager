@@ -11,30 +11,32 @@ stretch_mode = 5
 script = ExtResource("2_6w73g")
 
 [node name="open_dir" type="Button" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 159.0
 text = "open directory"
 
 [node name="pick_video" type="Button" parent="."]
-layout_mode = 0
-offset_top = 160.0
+layout_mode = 2
+offset_top = 163.0
 offset_right = 128.0
-offset_bottom = 191.0
+offset_bottom = 194.0
 text = "pick video"
 
 [node name="CheckButton" type="CheckButton" parent="."]
-layout_mode = 0
-offset_top = 192.0
+layout_mode = 2
+offset_top = 198.0
 offset_right = 128.0
-offset_bottom = 223.0
+offset_bottom = 229.0
 text = "is done"
 
 [node name="fd" type="FileDialog" parent="."]
 title = "Open a File"
-size = Vector2i(593, 400)
+size = Vector2i(800, 400)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*mkv")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
