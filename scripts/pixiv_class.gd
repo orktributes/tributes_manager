@@ -3,7 +3,6 @@ signal pixiv_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 var site_name = "pixiv"
-var options_class_load = load("res://scripts/options.gd").new()
 
 func linux_gallerydl(url):
 	print_rich("[color=Blue]BEBUG:[/color] runing linux gallery-dl")
@@ -14,8 +13,7 @@ func linux_gallerydl(url):
 		OS.get_user_data_dir()+"/"+"bin",
 		"-c",
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
-		"--cookies-from-browser",
-		options_class_load.browser
+		"--cookies-from-browser"
 	],output,true,true)
 	print_rich("[color=Blue]BEBUG:[/color] output of linux gallery-dl "+str(output))
 
@@ -30,8 +28,7 @@ func Windows_gallerydl(url):
 		OS.get_user_data_dir()+"/"+"bin/"+"config.json",
 		"--range",
 		"1-5",
-		"--cookies-from-browser",
-		options_class_load.browser
+		"--cookies-from-browser"
 	],output,true,true)
 	print_rich("[color=Blue]BEBUG:[/color] output of Windows gallery-dl "+str(output))
 

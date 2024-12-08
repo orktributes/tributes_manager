@@ -3,7 +3,6 @@ class_name windows_files
 var user_dir = DirAccess.open("user://")
 
 func make_files():
-	var output = []
 	if DirAccess.dir_exists_absolute("user://bin/") != true:
 		print_rich("[color=Blue]BEBUG:[/color] making user://bin/")
 		DirAccess.make_dir_absolute("user://bin/")
@@ -41,13 +40,11 @@ func make_files():
 		print_rich("[color=Blue]BEBUG:[/color] user://tributes/pixiv exists")
 		
 	if FileAccess.file_exists("user://bin/gallery-dl.exe") != true:
-		print_rich("[color=Blue]BEBUG:[/color] copying gallery-dl.exe to user://bin/ and making it executable")
+		print_rich("[color=Blue]BEBUG:[/color] copying gallery-dl.exe to user://bin/")
 		user_dir.copy(
 			"res://bin/gallery-dl.exe",
 			"user://bin/gallery-dl.exe"
 		)
-		#OS.execute("chmod",["+x",OS.get_user_data_dir()+"/"+"bin"+"/"+"gallery-dl.bin"],output,true,true)
-		print_rich("[color=Blue]BEBUG:[/color] output of chmod "+str(output))
 	else :
 		print_rich("[color=Blue]BEBUG:[/color] gallery-dl.exe exists in user://bin/")
 		

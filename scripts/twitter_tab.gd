@@ -3,13 +3,12 @@ extends Control
 var textrect_pre = preload("res://scenes/img_container.tscn")
 
 func _on_button_pressed():
-	var get_twitter_dir = DirAccess.get_directories_at("user://tributes/twitter/")
-	# look like it is not working
-	get_twitter_dir.sort()
+	print("DEBUG: removeing children of twitter GridContainer")
 	for n in $ScrollContainer/GridContainer.get_children():
 		$ScrollContainer/GridContainer.remove_child(n)
-	for i in get_twitter_dir:
-		
+	
+	print("DEBUG: finding and adding images to twitter GridContainer")
+	for i in DirAccess.get_directories_at("user://tributes/twitter/"):
 		for ii in DirAccess.get_files_at("user://tributes/twitter/"+i+"/src"):
 			if ii == "source.txt":
 				pass

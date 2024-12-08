@@ -30,6 +30,7 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
+theme_override_constants/v_separation = 100
 columns = 9
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
