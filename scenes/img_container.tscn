@@ -24,11 +24,18 @@ offset_right = 128.0
 offset_bottom = 194.0
 text = "pick video"
 
+[node name="copy_to_viewer" type="Button" parent="."]
+layout_mode = 2
+offset_top = 232.0
+offset_right = 128.0
+offset_bottom = 263.0
+text = "copy to viewer"
+
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 2
-offset_top = 198.0
+offset_top = 200.0
 offset_right = 128.0
-offset_bottom = 229.0
+offset_bottom = 231.0
 text = "is done"
 
 [node name="fd" type="FileDialog" parent="."]

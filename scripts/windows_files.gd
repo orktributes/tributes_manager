@@ -14,7 +14,13 @@ func make_files():
 		DirAccess.make_dir_absolute("user://tributes")
 	else :
 		print_rich("[color=Blue]BEBUG:[/color] user://tributes exists")
-	
+		
+	if DirAccess.dir_exists_absolute("user://tributes/cuming") != true:
+		print_rich("[color=Blue]BEBUG:[/color] making user://tributes/cuming")
+		DirAccess.make_dir_absolute("user://tributes/cuming")
+	else :
+		print_rich("[color=Blue]BEBUG:[/color] user://tributes/cuming exists")
+		
 	if DirAccess.dir_exists_absolute("user://tributes/done") != true:
 		print_rich("[color=Blue]BEBUG:[/color] making user://tributes/done")
 		DirAccess.make_dir_absolute("user://tributes/done")

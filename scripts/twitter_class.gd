@@ -1,5 +1,4 @@
 class_name twitter_class
-signal twitter_signal(dir)
 var user_dir = DirAccess.open("user://")
 
 var site_name = "twitter"

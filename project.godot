@@ -17,12 +17,17 @@ config/icon="res://icon.svg"
 run/main_scene.view="res://scenes_view/view.tscn"
 config/name.view="view"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=1200
 window/size/viewport_height=900
 window/size/resizable=false
 window/subwindows/embed_subwindows=false
+window/size/resizable.view=false
 
 [dotnet]
 

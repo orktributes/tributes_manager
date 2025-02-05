@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq8lpjwkrj02d"]
+[gd_scene load_steps=6 format=3 uid="uid://bq8lpjwkrj02d"]
 
 [ext_resource type="PackedScene" uid="uid://jedkkuhgflnq" path="res://scenes/download.tscn" id="1_1cq4p"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2v4vj"]
 [ext_resource type="PackedScene" uid="uid://bdguk8cl4txla" path="res://scenes/done.tscn" id="2_k2f7m"]
 [ext_resource type="PackedScene" uid="uid://q5uiquc7vx0q" path="res://scenes/twitter.tscn" id="3_p2c81"]
-[ext_resource type="PackedScene" uid="uid://duvvybxkde0u4" path="res://scenes/pixiv.tscn" id="4_4454c"]
-[ext_resource type="PackedScene" uid="uid://dgw65q02g4e4q" path="res://scenes/rule34.tscn" id="5_i4bk8"]
+[ext_resource type="PackedScene" uid="uid://duvvybxkde0u4" path="res://scenes/bsky.tscn" id="4_4454c"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -41,12 +40,11 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Pixiv" parent="TabContainer" instance=ExtResource("4_4454c")]
+[node name="Bsky" parent="TabContainer" instance=ExtResource("4_4454c")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="Rule34" parent="TabContainer" instance=ExtResource("5_i4bk8")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 4
+[node name="no_cum_lists" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="no_cum_lists" to="TabContainer/Download" method="_on_http_request_request_completed"]

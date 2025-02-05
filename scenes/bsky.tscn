@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://duvvybxkde0u4"]
 
-[ext_resource type="Script" path="res://scripts/pixiv_tab.gd" id="1_w2fsq"]
+[ext_resource type="Script" path="res://scripts/bsky_tab.gd" id="1_w2fsq"]
 
-[node name="Pixiv" type="Control"]
+[node name="Bsky" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

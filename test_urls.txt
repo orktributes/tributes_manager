@@ -1,0 +1,9 @@
+------------------ twitter ---------------------------------------------------
+single
+	https://x.com/Jumngee/status/1817877737547210759
+multi
+	https://x.com/niodreth/status/1324035643433984012
+no_cum
+	https://x.com/Nemesis_3d/status/1734574816152158359
+regex
+	(https:\/\/x\.com\/)([a-zA-Z0-9_]+)(\/status\/)([a-zA-Z0-9_]+)

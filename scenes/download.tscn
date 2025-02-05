@@ -43,22 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="twitter_bookmarks" type="Button" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 32.0
-offset_right = 208.0
-offset_bottom = 64.0
-text = "twitter bookmarks"
-
-[node name="pixiv_bookmarks" type="Button" parent="."]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 32.0
-offset_right = 424.0
-offset_bottom = 64.0
-text = "pixiv bookmarks"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -76,16 +60,17 @@ text = "How to use
 			https://x.com/Jumngee/status/1817877737547210759
 		this url does not work
 			https://x.com/Jumngee/status/1817877737547210759/photo/1
-			https://pbs.twimg.com/media/GTk2Jh-XIAA7ApR?format=jpg&name=4096x4096
+			https://pbs.twimg.com/media/GTk2Jh-XIAA7ApR?format=jpg&name=4096x4096"
 
-	for pixiv posts
-		you have to set up oauth [url=https://github.com/mikf/gallery-dl?tab=readme-ov-file#oauth]link to the docs[/url]
-		to download pixiv bookmarks you need to copy your pixiv id in to the options tab and save it
-		this url does works
-			https://www.pixiv.net/en/artworks/120961540
-		this url does not work
-			https://i.pximg.net/img-master/img/2024/07/28/17/30/18/120961540_p0_master1200.jpg"
+[node name="no_cum_Label" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 64.0
+bbcode_enabled = true
+text = "[color=red]on the no cum list[/color]"
+scroll_active = false
 
 [connection signal="pressed" from="download_Button" to="." method="_on_download_button_pressed"]
-[connection signal="pressed" from="twitter_bookmarks" to="." method="_on_twitter_bookmarks_pressed"]
-[connection signal="pressed" from="pixiv_bookmarks" to="." method="_on_pixiv_bookmarks_pressed"]
