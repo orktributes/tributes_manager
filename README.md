@@ -16,7 +16,7 @@ if you want to help you can
 
 ---
 
-1. download and install [v4.3.stable.mono.official](https://godotengine.org/download/)
+1. download and install [v4.4.stable.mono.official](https://godotengine.org/download/)
 
 2. git clone or download project
 
