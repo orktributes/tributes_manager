@@ -1,20 +1,4 @@
-# to-do
----
-- add error handling
-- add comments
-- add debug/logging
-- finish adding windows support
-- add better sourcing
-- reorganize the project
-
-if you want to help you can
-
-
-
-
 # how to build/edit this project
-
----
 
 1. download and install [v4.4.stable.mono.official](https://godotengine.org/download/)
 
@@ -26,3 +10,11 @@ if you want to help you can
 
 5. open godot and import the project
 
+# to-do
+
+- add error handling
+- add comments
+- finish adding windows support
+- add better sourcing
+
+if you want to help you can
