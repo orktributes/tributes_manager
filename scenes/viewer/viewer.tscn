@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6833takvo5a"]
+
+[ext_resource type="Script" uid="uid://d3ghjuwgibyei" path="res://scripts/viewer/viewer.gd" id="1_v2ge0"]
+
+[node name="Viewer" type="Node2D"]
+script = ExtResource("1_v2ge0")
+
+[node name="controller_win" type="Window" parent="."]
+position = Vector2i(0, 36)
+size = Vector2i(400, 400)
+
+[node name="ItemList" type="ItemList" parent="controller_win"]
+offset_right = 38.0
+offset_bottom = 115.0
+auto_width = true
+
+[node name="CheckButton" type="CheckButton" parent="controller_win"]
+offset_left = 4.0
+offset_top = 119.0
+offset_right = 129.0
+offset_bottom = 150.0
+text = "fullscreen"
+
+[node name="viewer_win" type="Window" parent="."]
+position = Vector2i(550, 400)
+
+[node name="img" type="Sprite2D" parent="viewer_win"]
+
+[connection signal="item_activated" from="controller_win/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="toggled" from="controller_win/CheckButton" to="." method="_on_check_button_toggled"]

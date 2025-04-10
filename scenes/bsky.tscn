@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://duvvybxkde0u4"]
 
-[ext_resource type="Script" path="res://scripts/bsky_tab.gd" id="1_w2fsq"]
+[ext_resource type="Script" uid="uid://ts21g00sla7f" path="res://scripts/bsky_tab.gd" id="1_w2fsq"]
 
 [node name="Bsky" type="Control"]
 layout_mode = 3
@@ -15,9 +15,20 @@ script = ExtResource("1_w2fsq")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = -688.0
 offset_bottom = 31.0
 grow_horizontal = 2
-text = "refresh"
+text = "load/refresh"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 512.0
+offset_right = -1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "pick random"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -31,8 +42,10 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 58
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 144
 columns = 9
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

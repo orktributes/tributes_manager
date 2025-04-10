@@ -7,3 +7,12 @@ no_cum
 	https://x.com/Nemesis_3d/status/1734574816152158359
 regex
 	(https:\/\/x\.com\/)([a-zA-Z0-9_]+)(\/status\/)([a-zA-Z0-9_]+)
+---------------------- bsky ----------------------------------------------
+single
+	https://bsky.app/profile/aw-gazzam.bsky.social/post/3ljv7ejkkwc2k
+multi
+	https://bsky.app/profile/aw-gazzam.bsky.social/post/3lk7bmllo5c26
+no_cum
+	https://bsky.app/profile/nemesis3d.bsky.social/post/3lkbxkrro3c2z
+regex
+	(https:\/\/bsky\.app\/profile\/)(.*)(\/post\/.*)

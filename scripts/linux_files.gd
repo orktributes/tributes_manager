@@ -41,11 +41,11 @@ func make_files():
 		print("DEBUG linux_files.make_files func: user://tributes/twitter exists")
 
 	# if user://tributes/bsky exists skip if not make it
-	if DirAccess.dir_exists_absolute("user://tributes/bsky") != true:
-		print("DEBUG linux_files.make_files func: making user://tributes/bsky")
-		DirAccess.make_dir_absolute("user://tributes/bsky")
+	if DirAccess.dir_exists_absolute("user://tributes/bluesky") != true:
+		print("DEBUG linux_files.make_files func: making user://tributes/bluesky")
+		DirAccess.make_dir_absolute("user://tributes/bluesky")
 	else :
-		print("DEBUG linux_files.make_files func: user://tributes/bsky exists")
+		print("DEBUG linux_files.make_files func: user://tributes/bluesky exists")
 
 	# if user://bin/gallery-dl.bin exists skip if not copy it
 	if FileAccess.file_exists("user://bin/gallery-dl.bin") != true:

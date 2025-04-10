@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://jedkkuhgflnq"]
 
-[ext_resource type="Script" path="res://scripts/download.gd" id="1_8r0ln"]
+[ext_resource type="Script" uid="uid://c2s57h6m066c8" path="res://scripts/download.gd" id="1_8r0ln"]
 
 [node name="Download" type="Control"]
 layout_mode = 3
@@ -72,5 +72,21 @@ offset_bottom = 64.0
 bbcode_enabled = true
 text = "[color=red]on the no cum list[/color]"
 scroll_active = false
+
+[node name="downloaded_image_rect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 64.0
+offset_right = 1192.0
+offset_bottom = 512.0
+
+[node name="ouput" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -346.0
+offset_right = 832.0
+grow_vertical = 0
 
 [connection signal="pressed" from="download_Button" to="." method="_on_download_button_pressed"]

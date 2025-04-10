@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://baw13qhayxqjl"]
 
 [ext_resource type="Texture2D" uid="uid://ui20yvxyenr8" path="res://icon.svg" id="1_evhjx"]
-[ext_resource type="Script" path="res://scripts/img_container.gd" id="2_6w73g"]
+[ext_resource type="Script" uid="uid://dh6soqkg44wjy" path="res://scripts/img_container.gd" id="2_6w73g"]
 
 [node name="TextureRect" type="TextureRect"]
 offset_right = 128.0
