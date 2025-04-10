@@ -11,7 +11,7 @@
 5. open godot and import the project
 
 # to-do
----
+
 - add error handling
 - add comments
 - finish adding windows support
